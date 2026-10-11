@@ -1,0 +1,4 @@
+# Build output
+build/
+connect_pico
+connect_pico.exe
