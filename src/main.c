@@ -20,9 +20,9 @@
  * Build: see the Makefile (make / make linux / make windows).
  *
  * Usage:
- *   connect_pico             scan, pick, connect at 115200
- *   connect_pico --baud 9600
- *   connect_pico --list      just list candidate boards, don't connect
+ *   pico-connect             scan, pick, connect at 115200
+ *   pico-connect --baud 9600
+ *   pico-connect --list      just list candidate boards, don't connect
  */
 
 #include "config.h"

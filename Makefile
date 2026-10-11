@@ -1,8 +1,8 @@
-# Makefile for connect_pico
+# Makefile for pico-connect
 #
 #   make            build for whatever platform you're running this on
 #   make linux      force a native POSIX build (gcc + pthread)
-#   make windows    cross-compile connect_pico.exe with MinGW-w64
+#   make windows    cross-compile pico-connect.exe with MinGW-w64
 #                   (on Linux/macOS: needs the x86_64-w64-mingw32-gcc
 #                   package; on Windows itself, just uses your normal gcc)
 #   make clean      remove built binaries and the build/ directory
@@ -43,14 +43,14 @@ endif
 
 all: $(NATIVE_TARGET)
 
-linux: connect_pico
+linux: pico-connect
 
-windows: connect_pico.exe
+windows: pico-connect.exe
 
-connect_pico: $(LINUX_OBJS)
+pico-connect: $(LINUX_OBJS)
 	$(CC) $(WARNINGS) -pthread -o $@ $^
 
-connect_pico.exe: $(WIN_OBJS)
+pico-connect.exe: $(WIN_OBJS)
 	$(WIN_CC) $(WARNINGS) -o $@ $^ -lsetupapi
 
 $(BUILD_DIR)/linux/%.o: $(SRC_DIR)/%.c
@@ -62,6 +62,6 @@ $(BUILD_DIR)/windows/%.o: $(SRC_DIR)/%.c
 	$(WIN_CC) $(CPPFLAGS) $(WARNINGS) -c $< -o $@
 
 clean:
-	rm -rf $(BUILD_DIR) connect_pico connect_pico.exe
+	rm -rf $(BUILD_DIR) pico-connect pico-connect.exe
 
 -include $(LINUX_OBJS:.o=.d) $(WIN_OBJS:.o=.d)

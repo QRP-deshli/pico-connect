@@ -1,10 +1,12 @@
-# connect_pico
+# pico-connect
 
 A small, dependency-free serial terminal for **Raspberry Pi Pico / Pico 2** and **WIZnet EVB-Pico / EVB-Pico2** boards (RP2040 and RP2350) that talk over USB CDC.
 
-It finds your board automatically, opens an interactive terminal to it, and - the main reason it exists - **survives board resets**. When the board reboots (reset button, watchdog, flashing, USB replug) its serial port disappears and comes back. `connect_pico` notices, waits for the same board to re-enumerate, and reconnects on its own, so you never have to restart the terminal.
+It finds your board automatically, opens an interactive terminal to it, and - the main reason it exists - **survives board resets**. When the board reboots (reset button, watchdog, flashing, USB replug) its serial port disappears and comes back. `pico-connect` notices, waits for the same board to re-enumerate, and reconnects on its own, so you never have to restart the terminal.
 
 Written in plain C11, runs on **Linux** and **Windows**.
+
+Unofficial tool: not affiliated with or endorsed by Raspberry Pi or WIZnet.
 
 ## Features
 
@@ -36,7 +38,7 @@ You need `make` and a C11 compiler (`gcc`).
 ### Linux
 
 ```sh
-make          # builds ./connect_pico
+make          # builds ./pico-connect
 ```
 
 ### Windows
@@ -44,7 +46,7 @@ make          # builds ./connect_pico
 Native, using MinGW-w64 (for example through [MSYS2](https://www.msys2.org/)):
 
 ```sh
-make          # builds connect_pico.exe
+make          # builds pico-connect.exe
 ```
 
 Cross-compile from Linux (needs the `x86_64-w64-mingw32-gcc` package):
@@ -63,7 +65,7 @@ make clean    # remove build/ and the built binaries
 ## Usage
 
 ```
-connect_pico [--baud RATE] [--list]
+pico-connect [--baud RATE] [--list]
 ```
 
 | Option        | Description                                      |
@@ -74,7 +76,7 @@ connect_pico [--baud RATE] [--list]
 Run it with no arguments to scan, pick a board (automatic if only one is found) and connect:
 
 ```sh
-./connect_pico
+./pico-connect
 ```
 
 Example `--list` output:
